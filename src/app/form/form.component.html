@@ -1,6 +1,7 @@
 
-  <form [formGroup]="profileForm">
+  <form [formGroup]="profileForm" >
   <input type="text" formControlName="fname" placeholder="First Name">
+  
   <!-- <small [hidden]="username.valid || (username.pristine && !f.submitted)">
     Username is required (minimum 5 characters).
 </small> -->
@@ -24,8 +25,9 @@
   <input type="password" formControlName="pass" placeholder="Password">
   <span *ngIf="!profileForm.controls['pass'].valid">*</span><br/><br/><br/>
 
-  <input type="password" formControlName="conpass" placeholder="Confirm Password">
+  <input type="password" formControlName="conpass" placeholder="Confirm Password" (keyup)="match()">
   <span *ngIf="!profileForm.controls['pass'].valid">*</span><br/><br/><br/>
-  <button type="submit" [disabled]="!profileForm.valid" >Submit</button>
-
+  <a routerLink="/details">
+  <button type="submit" [disabled]="!profileForm.valid" (click)="storeDetails()" >Submit</button>
+  </a>
   </form>
