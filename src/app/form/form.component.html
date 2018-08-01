@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <form [formGroup]="profileForm" >
   <input type="text" formControlName="fname" placeholder="First Name">
@@ -22,12 +23,15 @@
   <input type="text" formControlName="gender" placeholder="Gender">
   <span *ngIf="!profileForm.controls['gender'].valid">*</span><br/><br/><br/>
 
-  <input type="password" formControlName="pass" placeholder="Password">
+  
+  <input type="{{type}}" formControlName="pass">
+  <span (click)="showHide()"class="glyphicon glyphicon-eye-open"></span>
+  
   <span *ngIf="!profileForm.controls['pass'].valid">*</span><br/><br/><br/>
 
   <input type="password" formControlName="conpass" placeholder="Confirm Password" (keyup)="match()">
   <span *ngIf="!profileForm.controls['pass'].valid">*</span><br/><br/><br/>
-  <a routerLink="/details">
-  <button type="submit" [disabled]="!profileForm.valid" (click)="storeDetails()" >Submit</button>
-  </a>
+  
+  <button type="submit" [disabled]="!profileForm.valid" (click)="storeDetails()">Submit</button>
+  
   </form>

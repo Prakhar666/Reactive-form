@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { TransferService } from '../transfer.service'
+import { Router } from '../../../node_modules/@angular/router';
+
 
 
 @Component({
@@ -19,15 +22,14 @@ export class FormComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-  }
-  
-  storeDetails(){
-    localStorage.setItem("fulldetails",JSON.stringify(this.profileForm.value));
-  }
  
-
-  constructor() { 
+  
+  // storeDetails(){
+  //   localStorage.setItem("fulldetails",JSON.stringify(this.profileForm.value));
+  // }
+ 
+   public Data = [];
+  constructor( private savedata: TransferService, private route : Router) { 
 
   this.profileForm = new FormGroup({
     
@@ -42,6 +44,21 @@ export class FormComponent implements OnInit {
     conpass: new FormControl('', [Validators.required])
     
   });
+  
 
+}
+type:string="password";
+    showHide(){
+      if(this.type==="text")
+        this.type="password";
+     else
+      this.type="text";   
+    }
+storeDetails(){
+  this.savedata.getData(this.profileForm.value);
+  this.route.navigate(['/details']);
+}
+ngOnInit() {
+   
 }
 }

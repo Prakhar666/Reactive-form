@@ -7,18 +7,21 @@ import { FormComponent } from './form/form.component';
 import { DetailsComponent } from './details/details.component';
 import { AppRoutingModule } from './/app-routing.module';
 
+import { TransferService } from './transfer.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    DetailsComponent
+    DetailsComponent,
+          
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [TransferService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
