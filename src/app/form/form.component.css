@@ -1,1 +1,27 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+
+/* #fname1, #lname1, #mobile1, #pass1, #conpass1, #gender1, #email1, #empid1{
+    color: crimson;
+    } */
+
+/* #fname{
+    /* width: 15%; */
+    /* height: 50%;
+    text-align: center; */
+/* }     */ 
+
+form{
+    /* border: 2px solid black; */
+    height: 100%;
+
+    width: 100%;
+    /* position: absolute; */
+}
+
+#form2{
+
+    /* border: 2px solid red; */
+    height: 130%;
+    width: 50%;
+    margin-left: 30%;
+}

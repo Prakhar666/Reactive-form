@@ -12,14 +12,18 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class FormComponent implements OnInit {
   profileForm: FormGroup
+   test: boolean;
   match(){
     if(this.profileForm.value.pass!==this.profileForm.value.conpass)
     {
-      console.log("passwords do not match")
+      console.log("passwords do not match");
+      this.test=false;
     }
     else{
      console.log("password matched");
+     this.test=true;
     }
+    return this.test;
   }
 
  
@@ -39,9 +43,8 @@ export class FormComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
     mobile: new FormControl('', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]),
     gender: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$'), Validators.minLength(4), Validators.maxLength(6) ]),
-    pass: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(16)]),
-    //  Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8, 16}$')]),
-    conpass: new FormControl('', [Validators.required])
+    pass: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16), Validators.pattern('((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={};:"|,.<>]).{0,16})')]),
+    conpass: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)])
     
   });
   
@@ -58,7 +61,26 @@ storeDetails(){
   this.savedata.getData(this.profileForm.value);
   this.route.navigate(['/details']);
 }
+
+// obj = new getData();
+
+
 ngOnInit() {
+  // if(window.location.pathname == "/details")
+  // {
+  //   this.obj = this.service.   ;
+  //   this.profileForm.patchValue({
+  //     fname: this.obj.fname;
+  //     lname: this.obj.lname;
+  //     email: this.obj.email;
+  //     empid: this.obj.empid;
+  //     gender: this.obj.gender;
+  //     pass: this.obj.pass;
+  //     conpass: this.obj.conpass;
+  //   })
+    
+  }
+
    
 }
-}
+

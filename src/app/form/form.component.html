@@ -1,37 +1,40 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <form [formGroup]="profileForm" >
-  <input type="text" formControlName="fname" placeholder="First Name">
+ 
+  <form [formGroup]="profileForm">
+  <div id="form2">
+  <label>First Name:</label><br/>     
+  <input class="alert alert-success" type="text" id="fname" formControlName="fname" placeholder="First Name"><br/>
+  <span class="alert alert-danger" *ngIf="profileForm.controls['fname'].touched && !profileForm.controls['fname'].valid" id="fname1">Please enter text</span><br/><br/>
   
-  <!-- <small [hidden]="username.valid || (username.pristine && !f.submitted)">
-    Username is required (minimum 5 characters).
-</small> -->
-  <span *ngIf="!profileForm.controls['fname'].valid">*</span><br/><br/><br/>
-
-  <input type="text" formControlName="lname" placeholder="Last Name">
-  <span *ngIf="!profileForm.controls['lname'].valid">*</span><br/><br/><br/>
-
-  <input type="text" formControlName="empid" placeholder="Employee Id">
-  <span *ngIf="!profileForm.controls['empid'].valid">*</span><br/><br/><br/>
-
-  <input type="email" formControlName="email" placeholder="Email">
-  <span *ngIf="!profileForm.controls['email'].valid">*</span><br/><br/><br/>
+  <label>Last Name:</label><br/>     
+  <input class="alert alert-success" type="text" formControlName="lname" placeholder="Last Name">
+  <span class="alert alert-danger" *ngIf="profileForm.controls['lname'].touched && !profileForm.controls['lname'].valid" id="lname1">Please enter text</span><br/>
   
-  <input type="text" formControlName="mobile" placeholder="Contact Number">
-  <span *ngIf="!profileForm.controls['mobile'].valid">*</span><br/><br/><br/>
-
-  <input type="text" formControlName="gender" placeholder="Gender">
-  <span *ngIf="!profileForm.controls['gender'].valid">*</span><br/><br/><br/>
-
+  <label>Employee id:</label><br/>     
+  <input class="alert alert-success" type="text" formControlName="empid" placeholder="Employee Id">
+  <span class="alert alert-danger" *ngIf="profileForm.controls['empid'].touched && !profileForm.controls['empid'].valid" id="empid1">Please enter only 4 digits</span><br/>
   
-  <input type="{{type}}" formControlName="pass">
-  <span (click)="showHide()"class="glyphicon glyphicon-eye-open"></span>
+  <label>E-mail:</label><br/>     
+  <input class="alert alert-success" type="email" formControlName="email" placeholder="Email">
+  <span class="alert alert-danger" *ngIf="profileForm.controls['email'].touched && !profileForm.controls['email'].valid" id="email1">Invalid mail id</span><br/>
   
-  <span *ngIf="!profileForm.controls['pass'].valid">*</span><br/><br/><br/>
+  <label>Contact number:</label><br/>     
+  <input class="alert alert-success" type="text" formControlName="mobile" placeholder="Contact Number">
+  <span class="alert alert-danger" *ngIf="profileForm.controls['mobile'].touched && !profileForm.controls['mobile'].valid" id="mobile1">Please enter 10 digits</span><br/>
+  
+  <label>Gender:</label><br/>     
+  <input class="alert alert-success" type="text" formControlName="gender" placeholder="Gender">
+  <span class="alert alert-danger" *ngIf="profileForm.controls['gender'].touched && !profileForm.controls['gender'].valid" id="gender1">Please enter only text</span><br/>
 
-  <input type="password" formControlName="conpass" placeholder="Confirm Password" (keyup)="match()">
-  <span *ngIf="!profileForm.controls['pass'].valid">*</span><br/><br/><br/>
+  <label>Password:</label><br/>     
+  <input class="alert alert-success" type="{{type}}" formControlName="pass"  placeholder="Password">
+  <span  (click)="showHide()" class="glyphicon glyphicon-eye-open"></span>
+  <span class="alert alert-danger" *ngIf="profileForm.controls['pass'].touched && !profileForm.controls['pass'].valid" id="pass1">Invalid password</span><br/>
+  
+  <label>Confirm Password:</label><br/>     
+  <input class="alert alert-success" type="password" formControlName="conpass" placeholder="Confirm Password" (keyup)="match()">
+  <span class="alert alert-danger" *ngIf="profileForm.controls['conpass'].touched && !profileForm.controls['conpass'].valid" id="conpass1">Passwords do not match </span><br/>
   
   <button type="submit" [disabled]="!profileForm.valid" (click)="storeDetails()">Submit</button>
-  
+</div>
   </form>
