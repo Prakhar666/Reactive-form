@@ -66,18 +66,27 @@ storeDetails(){
 
 
 ngOnInit() {
-  // if(window.location.pathname == "/details")
-  // {
-  //   this.obj = this.service.   ;
-  //   this.profileForm.patchValue({
-  //     fname: this.obj.fname;
-  //     lname: this.obj.lname;
-  //     email: this.obj.email;
-  //     empid: this.obj.empid;
-  //     gender: this.obj.gender;
-  //     pass: this.obj.pass;
-  //     conpass: this.obj.conpass;
-  //   })
+  if(this.route.url==='/form')
+    
+  {
+    var obj=this.savedata.show();
+    
+    
+    this.profileForm.patchValue({
+      fname: obj.fname,
+      lname: obj.lname,
+      mobile:obj.mobile,
+      gender:obj.gender,
+      empid:obj.empid,
+      email:obj.email,
+      pass:obj.pass,
+      conpass:obj.conpass
+    });
+  }
+  else
+  {
+    console.log("No");
+  }
     
   }
 

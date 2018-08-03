@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransferService } from '../transfer.service';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -8,12 +9,18 @@ import { TransferService } from '../transfer.service';
 })
 export class DetailsComponent implements OnInit {
    item;
-  constructor(private savedata: TransferService) {
-    this.item=savedata.show();
+   edit()
+   {
+     this.route.navigate(['/form']);
+   }
+  constructor(private savedata: TransferService, private route : Router) {
+   // this.item=savedata.show();
     //this.item = JSON.parse(localStorage.getItem("fulldetails"));
+   
    }
 
   ngOnInit() {
+    this.item=this.savedata.show();
   }
 
 }

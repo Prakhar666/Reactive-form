@@ -7,28 +7,28 @@
   <span class="alert alert-danger" *ngIf="profileForm.controls['fname'].touched && !profileForm.controls['fname'].valid" id="fname1">Please enter text</span><br/><br/>
   
   <label>Last Name:</label><br/>     
-  <input class="alert alert-success" type="text" formControlName="lname" placeholder="Last Name">
+  <input class="alert alert-success" type="text" formControlName="lname" placeholder="Last Name"><br/>
   <span class="alert alert-danger" *ngIf="profileForm.controls['lname'].touched && !profileForm.controls['lname'].valid" id="lname1">Please enter text</span><br/>
   
   <label>Employee id:</label><br/>     
-  <input class="alert alert-success" type="text" formControlName="empid" placeholder="Employee Id">
+  <input class="alert alert-success" type="text" formControlName="empid" placeholder="Employee Id"><br/>
   <span class="alert alert-danger" *ngIf="profileForm.controls['empid'].touched && !profileForm.controls['empid'].valid" id="empid1">Please enter only 4 digits</span><br/>
   
   <label>E-mail:</label><br/>     
-  <input class="alert alert-success" type="email" formControlName="email" placeholder="Email">
+  <input class="alert alert-success" type="email" formControlName="email" placeholder="Email"><br/>
   <span class="alert alert-danger" *ngIf="profileForm.controls['email'].touched && !profileForm.controls['email'].valid" id="email1">Invalid mail id</span><br/>
   
   <label>Contact number:</label><br/>     
-  <input class="alert alert-success" type="text" formControlName="mobile" placeholder="Contact Number">
+  <input class="alert alert-success" type="text" formControlName="mobile" placeholder="Contact Number"><br/>
   <span class="alert alert-danger" *ngIf="profileForm.controls['mobile'].touched && !profileForm.controls['mobile'].valid" id="mobile1">Please enter 10 digits</span><br/>
   
   <label>Gender:</label><br/>     
-  <input class="alert alert-success" type="text" formControlName="gender" placeholder="Gender">
+  <input class="alert alert-success" type="text" formControlName="gender" placeholder="Gender"><br/>
   <span class="alert alert-danger" *ngIf="profileForm.controls['gender'].touched && !profileForm.controls['gender'].valid" id="gender1">Please enter only text</span><br/>
 
   <label>Password:</label><br/>     
   <input class="alert alert-success" type="{{type}}" formControlName="pass"  placeholder="Password">
-  <span  (click)="showHide()" class="glyphicon glyphicon-eye-open"></span>
+  <span  (click)="showHide()" class="glyphicon glyphicon-eye-open"></span><br/>
   <span class="alert alert-danger" *ngIf="profileForm.controls['pass'].touched && !profileForm.controls['pass'].valid" id="pass1">Invalid password</span><br/>
   
   <label>Confirm Password:</label><br/>     
